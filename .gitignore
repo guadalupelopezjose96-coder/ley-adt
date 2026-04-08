@@ -2,3 +2,10 @@ salud_auditiva_pro.cpp
 salud_visual_pro.cpp
 *.pro_bin
 privado/
+salud_pro_integral.cpp
+tetrax_engine_pro.cpp
+tetrax_pro
+seguridad_v.cpp
+sefuridad_v.cpp
+*.log
+*.json
