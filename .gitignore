@@ -6,3 +6,7 @@ salud_auditiva_3d.cpp
 salud_visual_3d.cpp
 audio_3d_engine.*
 *.3d_bin
+salud_auditiva_3d.cpp
+salud_visual_3d.cpp
+audio_3d_engine.*
+*.3d_bin
