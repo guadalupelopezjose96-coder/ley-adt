@@ -2,3 +2,7 @@ salud_auditiva_pro.cpp
 salud_visual_pro.cpp
 *.pro_bin
 privado/
+salud_auditiva_3d.cpp
+salud_visual_3d.cpp
+audio_3d_engine.*
+*.3d_bin
