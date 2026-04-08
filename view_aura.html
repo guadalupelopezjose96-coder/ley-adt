@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Aura Intel Core - Visor de Justicia</title>
+    <style>
+        body { background: #050505; color: #00FFC8; font-family: 'Courier New', monospace; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
+        #canvas { filter: drop-shadow(0 0 20px currentColor); transition: color 0.5s; }
+        .hud { position: absolute; top: 5%; text-align: center; width: 100%; text-shadow: 0 0 10px #00FFC8; }
+        .footer { position: absolute; bottom: 3%; opacity: 0.6; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+    <div class="hud">
+        <h1 id="estado">SISTEMA v3.5 OPERACIONAL</h1>
+        <h2 id="freq">528.59 Hz</h2>
+        <h3 id="bal">BALANCE: 7500.00 (v)</h3>
+    </div>
+    <canvas id="canvas"></canvas>
+    <div class="footer">100% NATURAL | 100% LEGAL | PROPIEDAD DE FOURPHONIX</div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+
+        function drawHex(x, y, size, color) {
+            ctx.beginPath(); ctx.strokeStyle = color; ctx.lineWidth = 6;
+            for (let i = 0; i < 6; i++) {
+                ctx.lineTo(x + size * Math.cos(i * Math.PI / 3), y + size * Math.sin(i * Math.PI / 3));
+            }
+            ctx.closePath(); ctx.stroke();
+        }
+
+        async function update() {
+            try {
+                const res = await fetch('aura_data.json');
+                const d = await res.json();
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                document.body.style.color = d.color || "#00FFC8";
+                document.getElementById('freq').innerText = `${d.frecuencia} Hz`;
+                
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const pulse = 200 + (Math.sin(Date.now() / 200) * 10);
+                
+                drawHex(centerX, centerY, pulse, document.body.style.color);
+            } catch (e) { /* Sincronizando... */ }
+            requestAnimationFrame(update);
+        }
+        update();
+    </script>
+</body>
+</html>

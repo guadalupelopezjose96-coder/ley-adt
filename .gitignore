@@ -1,0 +1,9 @@
+guardian_v
+tetrax_pro
+salud_v
+*.o
+.DS_Store
+salud_auditiva_pro.cpp
+salud_visual_pro.cpp
+audio_3d_engine.so
+*.pro_bin

@@ -1,0 +1,34 @@
+ScreenManager:
+    MainScreen:
+
+<MainScreen>:
+    name: 'main'
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(10)
+
+        MDTopAppBar:
+            title: "Aura Intel Core Pro"
+            elevation: 4
+            pos_hint: {"top": 1}
+
+        MDLabel:
+            text: root.status_label
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 0, 0.7, 1, 1
+            font_style: "H5"
+
+        MDFillRoundFlatButton:
+            text: "REACTIVAR NÚCLEOS"
+            pos_hint: {"center_x": .5}
+            on_release: root.ejecutar_optimizacion()
+
+        MDSeparator:
+            height: dp(2)
+
+        MDLabel:
+            text: "Estado del Sistema: 100% Operativo"
+            halign: "center"
+            font_style: "Caption"

@@ -1,0 +1,1 @@
+0 0 * * 0 rm ~/aura_intel_core/*.log
